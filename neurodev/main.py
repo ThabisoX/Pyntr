@@ -33,11 +33,17 @@ reg_log = int(input('Enter number: '))
 
 if reg_log == 1:
     current_user = user.register_user()
-    print('User registered successfully!\n')
-    main_menu(current_user)
+    if current_user:  # Check if registration was successful
+        print('User registered successfully!\n')
+        main_menu(current_user)
+    else:
+        print("Registration failed. Please try again.")
 elif reg_log == 2:
     current_user = user.login_user()
-    main_menu(current_user)
+    if current_user:  # Check if login was successful
+        main_menu(current_user)
+    else:
+        print("Login failed. Please try again.")
 elif reg_log == 3:
     exit()
 else:
